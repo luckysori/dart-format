@@ -45,23 +45,17 @@
   :type 'string
   :group 'dart-format)
 
-(reformatter-define dart-format
-  :program dart-format-command
-  :args
-  (list
-   "format"
-   "-o"
-   "show"
-   input-file
-   "--fix"
-   "--summary"
-   "none"
-   ;; TODO: Do not hard-code line-length.
-   "--line-length"
-   "100")
-  :input-file (reformatter-temp-file-in-current-directory)
-  :lighter " dart-format"
-  :group 'dart-format)
+(reformatter-define
+ dart-format
+ :program dart-format-command
+ :args
+ (list
+  "format" "-o" "show" input-file "--fix" "--summary" "none"
+  ;; TODO: Do not hard-code line-length.
+  "--line-length" "100")
+ :input-file (reformatter-temp-file-in-current-directory)
+ :lighter " dart-format"
+ :group 'dart-format)
 
 (provide 'dart-format)
 ;;; dart-format.el ends here
